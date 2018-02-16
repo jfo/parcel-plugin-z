@@ -1,3 +1,6 @@
-module.exports = function () {
-  console.log(arguments);
+const Asset = require('parcel-bundler/src/Asset');
+
+class ZigAsset extends Asset {
 }
+
+module.exports = ZigAsset;
