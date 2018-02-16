@@ -1,6 +1,7 @@
 module.exports = function (bundler) {
-  console.log("dsfjioasdfjio;");
-  console.log("dsfjioasdfjio;");
-  console.log("dsfjioasdfjio;");
-  console.log("dsfjioasdfjio;");
+  // the load skips the first one, for some reason
+  console.log("hello");
+  console.log("hello");
+  console.log("hello");
+  console.log("hello");
 }
