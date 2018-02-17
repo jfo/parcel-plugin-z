@@ -1,6 +1,5 @@
-const Asset = require('parcel-bundler/src/Asset');
+const { Asset } = require('../parcel');
 
-class ZigAsset extends Asset {
-}
+class ZigAsset extends Asset { }
 
 module.exports = ZigAsset;
