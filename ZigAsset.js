@@ -1,14 +1,22 @@
 const path = require('path');
-const { Asset, md5 } = require('parcel-bundler');
+const { Asset } = require('parcel-bundler');
 const { exec } = require('child_process');
+const crypto = require('crypto');
+
+function md5(string) {
+  return crypto
+    .createHash('md5')
+    .update(string)
+    .digest('hex');
+}
 
 class ZigAsset extends Asset {
 
   // parse will compile the file, placing it in a hashed fn wasm output in the
   // cache directory, reporting as appropriate.
   async parse() {
-    this.wasmPath = path.join(this.options.cacheDir, this.name + '.wasm');
-    const cmd = `zig build-obj ${this.name} --output ${this.wasmPath}`;
+    this.outputPath = path.join(this.options.cacheDir, md5(this.name));
+    const cmd = `zig build-exe ${this.name} --output ${this.outputPath}`;
     const x = exec(cmd);
     x.stderr.pipe(process.stderr);
     x.stdout.pipe(process.stdout);
