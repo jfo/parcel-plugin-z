@@ -22,7 +22,7 @@ class ZigAsset extends Asset {
     x.stdout.pipe(process.stdout);
   }
 
-  // generate will eventually return {wasm: {path: this.wasmPath}}
+  // generate will eventually return { wasm: { path: this.outputPath } }
   async generate() {
     return {
       js: `module.exports='${this.name}fjijij'`
